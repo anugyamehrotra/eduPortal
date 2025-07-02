@@ -4,6 +4,9 @@
 
 
 [eduPortal](https://eduportalhost.neocities.org/eduPortal_main_page) is a revolutionary program designed to modernize communication for educational systems and organizations. It enables all educators and supervisors within a region, school, or group to publish, share, and access information about the respective organizations that use the software.  
+
+In the complex digital age of the 21st century, the challenges of communication and delivering messages across various organizations persist, leaving some individuals unaware or uninformed about events, programs, and more. In school environments, the communication gap between students and educators is particularly prevalen. eduPortal offers a clear solution for educators, allowing them to publish, share, and deliver messages and information to students across diverse organizations.
+
 <br>
 
 ## 📑 Contents
