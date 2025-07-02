@@ -1,0 +1,194 @@
+<!--
+  eduPortal - All Rights Reserved
+  Copyright 2025 [Your Name or Project Name]
+
+  This software is proprietary and may not be copied, modified, or distributed
+  without express written permission. For reference only.
+  https://eduportalhost.neocities.org/eduPortal_main_page
+-->
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>eduPortal Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    }
+
+    body {
+            position: relative;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: none; 
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/83/Waterfall_at_Arthur's_Pass_National_Park.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.2; 
+        z-index: -1;  
+    }
+
+    .header {
+      background-color: #8093b6;
+      color: rgb(0, 0, 0);
+      padding: 16px 24px;
+      font-size: 20px;
+      font-weight: 500;
+      width: 100%;
+    }
+
+    center {
+      display: flex;
+      justify-content: center;
+      padding-top: 64px;
+    }
+
+    #loginPageForm {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      padding: 32px;
+      width: 100%;
+      max-width: 448px;
+      margin: 0 16px;
+    }
+
+    .signInContainer {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .signInTitle {
+      font-size: 24px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .description {
+      color: #4b5563;
+      font-size: 14px;
+    }
+
+    .usernameInput input,
+    .passswordInput input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 16px;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .usernameInput input:focus,
+    .passswordInput input:focus {
+      border-color: transparent;
+      outline: 2px solid #8093b6;
+      box-shadow: 0 0 0 2px rgba(100, 116, 139, 0.2);
+    }
+
+    a {
+      color: #64748b;
+      font-size: 14px;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #475569;
+    }
+
+    #loginBtn,
+    #homeBtn {
+      width: 100%;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      border: none;
+    }
+
+    #loginBtn {
+      background-color: #8093b6;
+      color: white;
+    }
+
+    #loginBtn:hover {
+      background-color: #475569;
+    }
+
+    #homeBtn {
+      background-color: #e5e7eb;
+      color: #374151;
+    }
+
+    #homeBtn:hover {
+      background-color: #d1d5db;
+    }
+    
+    .usernameInput,
+    .passswordInput {
+      margin-bottom: 16px;
+    }   
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h3 onclick="window.location.href='eduPortal_main_page.html'">eduPortal</h3>
+  </div>
+
+  <center>
+    <form id="loginPageForm">
+      <div class="signInContainer">
+        <h1 class="signInTitle" style="text-align: left;">Sign In</h1>
+        <p class="description" style="text-align: left;">Please enter your details.</p>
+      </div>
+
+      <div class="usernameInput" style="text-align: left;">
+        <input type="text" name="usernameInputVar" id="usernameInputVar" placeholder="Username">
+      </div>
+
+      <div class="passswordInput" style="text-align: left;">
+        <input type="password" name="passwordInputVar" id="passwordInputVar" placeholder="Password">
+      </div>
+
+      <div style="text-align: left; margin-bottom: 16px;">
+        <a href="mailto:support@eduPortal.com?subject=Password Reset Request&body=Hello, I would like to reset my password." target="_blank"> Forgot Password? </a> <br><br>
+      </div>
+
+      <div style="margin-bottom: 16px;">
+        <input type="button" id="loginBtn" value="Log In" onclick="loginFunction()">
+      </div> <br><br>
+
+      <div>
+        <input type="button" id="homeBtn" value="Home" onclick="window.location.href='eduPortal_main_page.html'">
+      </div>
+    </form>
+  </center>
+
+  <script src="teacherLogin.js"></script>
+</body>
+</html>
+
+<!-- Sources:
+ 
+CSS Refs; W3Schools, Web.Dev, Mozilla, Figma Plugins, BlackboxAI
+
+
+-->

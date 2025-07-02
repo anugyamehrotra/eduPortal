@@ -1,0 +1,334 @@
+<!--
+  eduPortal - All Rights Reserved
+  Copyright 2025 [Your Name or Project Name]
+
+  This software is proprietary and may not be copied, modified, or distributed
+  without express written permission. For reference only.
+  https://eduportalhost.neocities.org/eduPortal_main_page
+-->
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Post Editing Page</title>
+  <script src="teacher_edit.js" defer></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      position: relative;
+      background-color: transparent;
+      z-index: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/83/Waterfall_at_Arthur's_Pass_National_Park.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.15;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    #navBar {
+      background-color: #8093b6;
+      padding: 15px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      color: black;
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .webTitleContainer {
+      max-width: 800px;
+      margin: 32px auto 0;
+    }
+
+    .postContainer {
+      font-weight: 700;
+      font-size: 20px;
+      color: #1f2937;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 8px;
+    }
+
+    input[type="date"] {
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #f3f4f6;
+      background-color: white;
+      color: #374151;
+    }
+
+    input[type="date"]:focus {
+      outline: 2px solid #3b82f6;
+    }
+
+    #editTitleInput {
+      margin: 16px auto;
+      max-width: 800px;
+    }
+
+    #createTitle {
+      width: 100%;
+      padding: 12px 16px;
+      background-color: #f3f4f6;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      color: #6b7280;
+      outline: none;
+    }
+
+    #createTitle:focus {
+      color: #374151;
+    }
+
+    .descriptionInput {
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
+    #descriptionInput {
+      width: 100%;
+      min-height: 300px;
+      padding: 16px;
+      background-color: #f3f4f6;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      color: #6b7280;
+      resize: vertical;
+      outline: none;
+      font-family: inherit;
+    }
+
+    #descriptionInput:focus {
+      color: #374151;
+    }
+
+    details {
+      max-width: 800px;
+      margin: 24px auto;
+      background-color: #f3f4f6;
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-family: inherit;
+      color: #374151;
+    }
+
+    details summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      user-select: none;
+    }
+
+    label {
+      margin-right: 8px;
+      font-weight: 500;
+      user-select: none;
+    }
+
+    select,
+    input[type="checkbox"],
+    input[type="file"] {
+      margin-right: 12px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(1.1);
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
+    .teacherTypeInputSection,
+    #gradeInput,
+    .categoryInputSection,
+    .clubInput {
+      margin-top: 12px;
+    }
+
+    .actionButton {
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 16px;
+      background-color: #f3f4f6;
+      border-radius: 6px;
+    }
+
+    .actionButton button {
+      flex: 1;
+      padding: 12px 0;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #d1d5db;
+      color: #374151;
+      transition: background-color 0.2s;
+    }
+
+    .actionButton button:hover {
+      background-color: #9ca3af;
+    }
+
+    h2 a {
+        color: #000000;
+        font-size: 25px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    h3 a {
+        color: #000000;
+        font-size: 25px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+      h1 a {
+        color: #000000;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .actionButton {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .postContainer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body onload="loadEditForm()">
+  <form id="editPostForm">
+    <div id="navBar">
+      <h3 onclick="window.location.href='eduPortal_main_page.html'"> eduPortal &#9679; EDIT  </h3>
+    </div>
+
+    <div class="webTitleContainer">
+      <div class="postContainer">
+        EDIT A POST
+        <input type="date" id="date" name="dateT">
+      </div>
+    </div>
+
+    <div id="editTitleInput">
+      <input type="text" id="createTitle" name="titleT" placeholder="EDIT TITLE">
+    </div>
+
+    <div class="descriptionInput">
+      <textarea id="descriptionInput" name="descriptionT" placeholder="EDIT TEXT" rows="10" cols="60"></textarea>
+    </div>
+
+    <details>
+      <summary>EDIT POST CATEGORIES</summary>  <br>
+   
+
+      <div class="teacherTypeInputSection">
+        <label for="teacherType">&#x25B6; POSTED BY</label>
+        <select id="teacherType" name="teacherTypeT">
+          <option value=""></option>
+          <option value="Ms. Premawardena">Ms. Premawardena</option>
+          <option value="Ms. Scott">Ms. Scott</option>
+          <option value="Mr. George">Mr. George</option>
+          <option value="Mrs. James">Mrs. James</option>
+          <option value="Ms. Smith">Ms. Smith</option>
+          <option value="Mr. Johnson">Mr. Johnson</option>
+          <option value="Ms. Brown">Ms. Brown</option>
+          <option value="Mr. Davis">Mr. Davis</option>
+        </select>
+      </div><br>
+
+      <div id="gradeInput">
+        &#x25B6;
+        <input type="checkbox" id="grade9" name="grade9T" value="grade9">
+        <label for="grade9">Grade 9</label>
+        <input type="checkbox" id="grade10" name="grade10T" value="grade10">
+        <label for="grade10">Grade 10</label>
+        <input type="checkbox" id="grade11" name="grade11T" value="grade11">
+        <label for="grade11">Grade 11</label>
+        <input type="checkbox" id="grade12" name="grade12T" value="grade12">
+        <label for="grade12">Grade 12</label>
+      </div><br>
+
+      <div class="categoryInputSection">
+        <label for="tagCategory">&#x25B6; CATEGORY OF POST</label>
+        <select id="tagCatagory" name="catagoryT">
+          <option value=""></option>
+          <option value="General">General</option>
+          <option value="Academic">Academics</option>
+          <option value="Sports">Sports</option>
+          <option value="Events">Events</option>
+        </select>
+      </div><br>
+
+      <div class="clubInput">
+        <label for="clubInput">&#x25B6; CATEGORY OF CLUB</label>
+        <select id="clubInput" name="clubT">
+          <option value=""></option>
+          <option value="Hack Club">Hack Club</option>
+          <option value="HOSA">HOSA</option>
+          <option value="MUN">Model UN (MUN)</option>
+          <option value="Eco Club">Eco Club</option>
+          <option value="Student Council">Student Council</option>
+          <option value="Debate Club">Debate Club</option>
+        </select>
+      </div><br>
+      
+    </details>
+
+    <div class="actionButton">
+      <button type="button" onclick="saveEditedPost()">SAVE CHANGES</button>
+    </div>
+  </form>
+</body>
+</html>
+
+<!-- Sources:
+ 
+CSS Refs; W3Schools, Web.Dev, Mozilla, Figma Plugins, BlackboxAI
+
+
+-->

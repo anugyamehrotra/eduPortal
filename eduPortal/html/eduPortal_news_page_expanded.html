@@ -1,0 +1,311 @@
+<!--
+  eduPortal - All Rights Reserved
+  Copyright 2025 [Your Name or Project Name]
+
+  This software is proprietary and may not be copied, modified, or distributed
+  without express written permission. For reference only.
+  https://eduportalhost.neocities.org/eduPortal_main_page
+-->
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>eduPortal Home Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            position: relative;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: none; 
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/83/Waterfall_at_Arthur's_Pass_National_Park.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.2; 
+            z-index: -1;  
+        }
+
+        #navBar {
+            background-color: #8093b6;
+            padding: 15px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #navBar h3 {
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .search-container {
+        flex: 1;
+        max-width:950px;
+        margin: 10px 20px;
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        }
+
+        .seachTab {
+            width: 100%;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .nav-btn {
+            padding: 6px 16px;
+            border: 1px solid #ccc;
+            background: white;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .login-btn {
+            background-color: #374151;
+            color: white;
+            border: 1px solid #374151;
+        }
+
+        #imageContainer {
+            height: 350px;
+            background-image: url('mainNavBarImage.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .main-content {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            gap: 20px;
+            padding: 0 px;
+        }
+
+        .left-column {
+            flex: 1;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .right-column {
+            width: 300px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .post-sections {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            align-items: flex-start;
+        }
+
+        .post-box {
+            flex: 5;
+        }
+
+        h2 a {
+            color: #374151;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #searchResultContainerView, #latestPostContainerView {
+            padding: 25px 0;
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #374151;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        #dateTime {
+            color: white;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        #buttonContainerDiv {
+            margin-top: 10px;
+        }
+
+        .login-btn {
+        background-color: #374151;
+        color: white;
+        border: none;
+        padding: 6px 14px;
+        font-size: 13px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #1f2937;
+        }
+
+        #searchResultContainerView .post,
+        #latestPostContainerView .post {
+            margin-bottom: 25px; 
+        }
+
+        #bottomSeperationBarContainer {
+        background-color: #8093b6;
+        height: 40px;
+        width: 100%;
+        }
+
+        h2 a {
+            color: #000000;
+            font-size: 25px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        h3 a {
+            color: #000000;
+            font-size: 25px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+         h1 a {
+            color: #000000;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+       
+        
+    </style>
+</head>
+<body onload="displayRecentPosts()">
+
+    <!-- MAIN NAVIGATION -->
+    <div id="navBar">
+        <h2 onclick="window.location.href='eduPortal_main_page.html'">eduPortal</h2>
+
+        <div class="search-container">
+            <input type="text" class="seachTab" id="mainSearchBarS" placeholder="🔍 Search posts, events, media">
+            <button onclick="searchPosts()" class="login-btn" style="padding: 6px 12px; font-size: 13px;">Search</button>
+        </div>
+
+       
+        <div id="dateTime"></div>
+        <div id="buttonContainerDiv"></div>
+    </div>
+
+    <!-- MAIN IMAGE IMAGE -->
+    <div id="imageContainer"></div>
+
+        
+    <!-- MAIN CONTENT AREA -->
+    <div class="main-content">
+        <div class="left-column">
+            <div class="post-sections">
+                <!-- RECENT POSTS -->
+                <div class="post-box">
+                    <h2><a href="eduPortal_news_page_expanded.html">eduPortal ● All Posts</a></h2>
+                    <div id="searchResultContainerView"></div>
+                </div>
+
+                <!-- LATEST POSTS -->
+                
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <h1>Socials</h1>
+        <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> |
+        <a href="https://www.youtube.com" target="_blank">YouTube</a> |
+        <a href="https://www.instagram.com" target="_blank">Instagram</a>
+    </footer>
+
+    <script>
+    function updateDateTime() {
+        const now = new Date();
+        const options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        };
+        document.getElementById("dateTime").innerHTML = new Intl.DateTimeFormat('en-US', options).format(now);
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 60000);
+
+    const loggedInTeacher = localStorage.getItem("loggedInTeacherKey");
+    const buttonContainer = document.getElementById("buttonContainerDiv");
+
+    if (loggedInTeacher) {
+        buttonContainer.innerHTML = `<button class="login-btn" onclick="logOut()">Log Out</button> <span style="color: white; margin-left: 25px;"><button class="login-btn" style="background-color:#374151; border:none; margin-left: 25px;" onclick="location.href='teacher.html'">Create New Post</button>`;
+    } else {
+        buttonContainer.innerHTML = `<button class="login-btn" onclick="location.href='signInPage.html'">Log In</button>`;
+    }
+</script>
+
+
+
+    <script src="eduPortal_expanded_posts_script.js"></script>
+</body>
+</html>
+
+
+<!-- Sources:
+ 
+Time Interval System > https://stackoverflow.com/questions/32307483/in-javascript-how-to-create-an-accurate-timer-with-milliseconds
+    // https://stackoverflow.com/questions/29971898/how-to-create-an-accurate-timer-in-javascript
+CSS Refs; W3Schools, Web.Dev, Mozilla, Figma Plugins, BlackboxAI
+
+
+-->

@@ -1,0 +1,397 @@
+<!--
+  eduPortal - All Rights Reserved
+  Copyright 2025 [Your Name or Project Name]
+
+  This software is proprietary and may not be copied, modified, or distributed
+  without express written permission. For reference only.
+  https://eduportalhost.neocities.org/eduPortal_main_page
+-->
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search eduPortal</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: transparent;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/83/Waterfall_at_Arthur's_Pass_National_Park.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  #navBar {
+    background-color: #8093b6;
+    padding: 15px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    width: 100%;
+  }
+
+  .searchTab {
+    width: 100%;
+    height: 35px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background-color: #f9fafb;
+    font-size: 14px;
+    color: #374151;
+    margin-top: 8px;
+    margin-bottom: 16px;
+  }
+
+  input:focus,
+  select:focus {
+    outline: 2px solid #3b82f6;
+    background-color: white;
+  }
+
+  #searchAnnForm {
+    width: 100%;
+    padding: 24px 40px;
+  }
+
+  label {
+    font-weight: 500;
+    color: #374151;
+  }
+
+  section {
+    margin-bottom: 16px;
+  }
+
+  details {
+    background-color: #f3f4f6;
+    padding: 20px;
+    border-radius: 6px;
+    color: #374151;
+    margin-top: 24px;
+  }
+
+  summary {
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .teacherTypeInputSection,
+  .tagCategoryInput,
+  .clubInput,
+  #gradeLevelInput {
+    margin-top: 12px;
+  }
+
+  input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+
+  #gradeLevelInput label {
+    margin-right: 16px;
+  }
+
+  .actionButton {
+    display: flex;
+    
+    gap: 12px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .actionButton button {
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    
+  }
+
+  button.reset {
+    background-color: #f87171;
+    color: white;
+  }
+
+  button.reset:hover {
+    background-color: #ef4444;
+    transform: scale(1.02);
+  }
+
+  button.search {
+    background-color: #60a5fa;
+    color: white;
+  }
+
+  button.search:hover {
+    background-color: #3b82f6;
+    transform: scale(1.02);
+  }
+
+  #searchResultContainerView {
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 6px;
+    margin-top: 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  #searchResultView {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+  }
+
+  #postView h4,
+  #postView p {
+    margin-bottom: 8px;
+    color: #374151;
+    }
+
+    #dateTime {
+        font-size: 12px;
+        margin-top: 0;
+        color: white;
+        display: inline-flex;
+        align-items: center;
+        margin-left: 20px;
+        white-space: nowrap;
+    }
+
+    #buttonContainerDiv {
+        margin-top: 0;
+        display: inline-flex;
+        align-items: center;
+        margin-left: 20px;
+        white-space: nowrap;
+    }
+
+    .login-btn {
+    background-color: #374151;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    }
+
+    .login-btn {
+        background-color: #374151;
+        color: white;
+        border: 1px solid #374151;
+    }
+
+    .login-btn:hover {
+        background-color: #1f2937;
+    }
+
+    @media (max-width: 768px) {
+      
+
+      .searchTab {
+        width: 100%;
+      }
+
+      #searchAnnForm {
+        padding: 0px;
+      }
+
+        
+      }
+  </style>
+</head>
+
+<body onload="displayFinalResults()">
+
+<div id="navBar">
+      <h3 onclick="window.location.href='eduPortal_main_page.html'">eduPortal &#9679; SEARCH </h3>
+
+      <div id="dateTime"></div>
+      <div id="buttonContainerDiv"></div>
+      
+    </div>
+
+  <form id="searchAnnForm">
+    <div id="navBar">
+      
+      <input type="text" class="searchTab" name="mainSearchBarS" placeholder="🔍 Search posts, events, media">
+    </div><br>
+
+    <div class="advancedSearch">
+      <details>
+        <summary>Advanced Search</summary>
+
+        <section>
+          <label for="title">Title</label>
+          <input type="text" id="title" name="titleS" placeholder="Announcement title">
+        </section>
+
+        <section>
+          <label for="description">Description</label>
+          <input type="text" id="description" name="descriptionS" placeholder="Announcement description">
+        </section>
+
+        <section class="teacherTypeInputSection">
+          <label for="teacherType">Posted By</label>
+          <select id="teacherType" name="teacherTypeS">
+            <option value="">Select teacher</option>
+            <option value="Ms. Premawardena">Ms. Premawardena</option>
+            <option value="Ms. Scott">Ms. Scott</option>
+            <option value="Mr. George">Mr. George</option>
+            <option value="Mrs. James">Mrs. James</option>
+            <option value="Ms. Smith">Ms. Smith</option>
+            <option value="Mr. Johnson">Mr. Johnson</option>
+            <option value="Ms. Brown">Ms. Brown</option>
+            <option value="Mr. Davis">Mr. Davis</option>
+          </select>
+        </section>
+
+        <section>
+          <label for="datefrom">Date From</label>
+          <input type="date" name="date1S" id="datefrom">
+          <label for="dateto">Date To</label>
+          <input type="date" name="date2S" id="dateto">
+        </section>
+
+        <section class="tagCategoryInput">
+          <label for="tagCategory">Category of Post</label>
+          <select id="tagCategory" name="catagoryS">
+            <option value="">Select category</option>
+            <option value="General">General</option>
+            <option value="Academic">Academics</option>
+            <option value="Sports">Sports</option>
+            <option value="Events">Events</option>
+          </select>
+        </section>
+
+        <section class="clubInput">
+          <label for="clubInput">Category of Club</label>
+          <select id="clubInput" name="clubS">
+            <option value="">Select club</option>
+            <option value="Hack Club">Hack Club</option>
+            <option value="HOSA">HOSA</option>
+            <option value="MUN">Model UN (MUN)</option>
+            <option value="Eco Club">Eco Club</option>
+            <option value="Student Council">Student Council</option>
+            <option value="Debate Club">Debate Club</option>
+          </select>
+        </section>
+
+        <section id="gradeLevelInput">
+          <label>Grades</label><br><br>
+          <input type="checkbox" name="grade9S" value="grade9"><label for="grade9S">Grade 9</label>
+          <input type="checkbox" name="grade10S" value="grade10"><label for="grade10S">Grade 10</label>
+          <input type="checkbox" name="grade11S" value="grade11"><label for="grade11S">Grade 11</label>
+          <input type="checkbox" name="grade12S" value="grade12"><label for="grade12S">Grade 12</label>
+        </section>
+
+    </div> <br><br>
+
+        <div class="actionButton">
+          <button type="button" class="search" onclick="getStudentSearchData(this.form)">Search</button>
+          <button type="reset" class="reset" onclick="clearData()">Reset</button>
+        </div><br>
+
+        
+      </details>
+    
+  </form>
+
+  <section id="searchResultsSection">
+          <div id="searchResultContainerView">
+            <div id="postView">
+              <h2>Search Results</h2>
+              <h2 id="searchResultView"></h2><br>
+              <h4 id="titleAnnView">POST TITLE</h4>
+              <p id="dateAnnView"></p>
+              <p id="descriptionAnnView"></p>
+              <p id="categoryAnnView"></p>
+              <p id="clubAnnView"></p>
+              <p id="gradeAnnView"></p>
+            </div>
+          </div>
+        </section>
+
+
+        <script>
+      function updateDateTime() {
+        const now = new Date();
+        const options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        };
+        document.getElementById("dateTime").innerHTML = new Intl.DateTimeFormat('en-US', options).format(now);
+    }
+
+    updateDateTime();
+      setInterval(updateDateTime, 60000);
+
+    const loggedInTeacher = localStorage.getItem("loggedInTeacherKey");
+    const buttonContainer = document.getElementById("buttonContainerDiv");
+
+    if (loggedInTeacher) {
+        buttonContainer.innerHTML = `<button class="login-btn" onclick="logOut()">Log Out</button> <span style="color: white; margin-left: 25px;"><button class="login-btn" style="background-color:#374151; border:none; margin-left: 25px;" onclick="location.href='teacher.html'">Create New Post</button>`;
+    } else {
+        buttonContainer.innerHTML = `<button class="login-btn" onclick="location.href='signInPage.html'">Log In</button>`;
+    }
+</script>
+
+  <script src="search.js"></script>
+</body>
+</html>
+
+<!-- Sources:
+ 
+Time Interval System > https://stackoverflow.com/questions/32307483/in-javascript-how-to-create-an-accurate-timer-with-milliseconds
+  // https://stackoverflow.com/questions/29971898/how-to-create-an-accurate-timer-in-javascript
+CSS Refs; W3Schools, Web.Dev, Mozilla, Figma Plugins, BlackboxAI
+
+
+-->
