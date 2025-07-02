@@ -133,3 +133,11 @@ To log in:
 // USER LOGIN CREDENTIALS --> SECURE USING EXTERNAL DATABASE IN FUTURE
     const usernameValues = ["admin1", "admin2", "admin3", "admin4"];
     const passwordValues = ["pass1", "pass2", "pass3", "pass4"];
+```
+
+### 📄 Author
+Created by Anugya Mehrotra. Contact amehrotra.395@gmail.com for all inquiries.
+
+### License
+eduPortal is is protected under the MIT License. You may view, use, and modify the code under the terms of that license. For full detailed, see the [LICENSE.md](https://github.com/anugyamehrotra/eduPortal/blob/main/LICENSE)
+
