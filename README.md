@@ -26,6 +26,7 @@ Follow these steps to get the eduPortal project up and running locally or online
 
 ### 🔗 Live Demo  
 Access eduPortal via this [link](https://eduportalhost.neocities.org/eduPortal_main_page), or download all files and set-up manually.  
+#### _For login, refer to Configuration below._
 <br>
 
 ### 📁 Clone The Repository  
