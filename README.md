@@ -135,9 +135,20 @@ To log in:
     const passwordValues = ["pass1", "pass2", "pass3", "pass4"];
 ```
 
-### 📄 Author
-Created by Anugya Mehrotra. Contact amehrotra.395@gmail.com for all inquiries.
+---
 
-### License
-eduPortal is is protected under the MIT License. You may view, use, and modify the code under the terms of that license. For full detailed, see the [LICENSE.md](https://github.com/anugyamehrotra/eduPortal/blob/main/LICENSE)
+### 👤 Author
+
+Created by Anugya Mehrotra.  
+Contact: amehrotra.395@gmail.com for all inquiries.
+
+---
+
+### 📄 License
+
+eduPortal is protected under the MIT License.  
+You may view, use, and modify the code under the terms of that license.  
+
+For full details, see the LICENSE.md file at:  
+[LICENSE](https://github.com/anugyamehrotra/eduPortal/blob/main/LICENSE)
 
