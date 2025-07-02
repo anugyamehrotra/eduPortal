@@ -107,8 +107,13 @@ const teacherImages = JSON.parse(localStorage.getItem("teacherImagesKey")) || []
 
 ### 🔐 Login System Overview
 
-eduPortal uses a **simple frontend login system** for administrators to access the post creation interface. Login credentials are checked against set values stored within the application.
-> Database security for storing password can be done via node.js or external dependencies. This program does nto support the use of external storage
+eduPortal uses a simple frontend login system for administrators to access the post creation interface. Login credentials are checked against set values stored within the application.
+
+> WARNING: Do NOT use real or sensitive passwords in this system.  
+> This login is for demonstration only and is NOT secure.  
+> For real-world use, implement proper backend authentication and secure password storage.
+
+Database security for storing passwords can be done via node.js or external dependencies. This program does not support the use of external storage.
 
 ---
 
