@@ -6,10 +6,10 @@
 [eduPortal](https://eduportalhost.neocities.org/eduPortal_main_page) is a revolutionary program designed to modernize communication for educational systems and organizations. It enables all educators and supervisors within a region, school, or group to publish, share, and access information about the respective organizations that use the software.  
 <br>
 
-### 📑 Contents
-1. Quick Start  
-2. Core Features  
-3. Configuratiom  
+## 📑 Contents
+- [Quick Start](#quick-start)
+- [Core Features](#core-features)
+- [Configuration](#configuratiom)
 
 <br>
 
@@ -102,7 +102,7 @@ const teacherImages = JSON.parse(localStorage.getItem("teacherImagesKey")) || []
 
 <br>
 
-# 🛠️ Configuratiom
+# 🛠️ Configuration
 ![image](https://github.com/user-attachments/assets/db822c88-cb39-4256-890f-979e52689325)
 
 ### 🔐 Login System Overview
