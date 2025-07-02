@@ -42,7 +42,8 @@ cd eduPortal
 <li>Open <code>eduPortal_main_page.html</code> in any modern browser:  
   <ul> 
     <li>Right-click → <strong>Open with</strong> → your browser</li>  
-    <li>Or drag and drop the file into a browser window</li>  
+    <li>Or drag and drop the file into a browser window</li> 
+    <li>Repeat for all additional pages and javascript files if manually downloading or run through an IDE</li>
   </ul> 
 </li>  
 
@@ -61,17 +62,22 @@ cd eduPortal
   - `Post Content`
   - `Subject`
   - `Grades`
-  - `Catagory Tags`
+  - `Category Tags`
   
-- This feature is useful for catagorizing specific posts related to an organization, including events, plans, or general announcements.  
-- Posts are saved dynamically using `localStorage`, allowing easy user data persistience when submitted.  
+- This feature is useful for categorizing specific posts related to an organization, including events, plans, or general announcements.  
+- Posts are saved dynamically using `localStorage`, allowing easy user data persistience when submitted. 
+- To create a post, once administrator access is granted **_(refer to configuration below)_**, select the `Create A New Post` — this button can be found across multiple pages once logged in.
+- Fill in all form data (relating to all categories above) then click `Submit` to publish a post. All published posts can be found upon redirect to home page.
 <br>
 
-### 🛠 2. Manage & Edit Posts (Edit/Delete)
+### 🛠 2. Manage, Filter & Edit Posts (Edit/Delete/Search)
 - Administrators have the option to:
   - **Edit A Post** — recall data from `localStorage`, publish changes to HTML keys & variables, and dynamically display changes via DOM manipulation  
   - **Delete A Post** — _splice_ data from HTML value keys (containing post data), update to `localStorage`, and dynamically display posts  
 - Each post is stored in JSON format in the browser  
+- To delete or edit a post, once logged in, select the `Edit` or `Delete` button found below the posts on the main home page, expanded pages, or search pages. Upon clicking `Edit`, you will be redirected to a page to edit all current form data. Once edited, click `Submit` to finalize all changes to be redicted to the specific page. 
+
+- To search for a post, upon filling in valid search queries (i.e. no null values), click `Search` (function found on multiple pages — home page, search page, etc.) to be redirected to a search page with basic searching & advanced category searching. 
 <br>
 
 ### 🖼️ 3. Image & File Support (Base64 Encoding)
