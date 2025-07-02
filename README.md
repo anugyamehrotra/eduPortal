@@ -29,8 +29,8 @@ Access eduPortal via this [link](https://eduportalhost.neocities.org/eduPortal_m
 First, clone the eduPortal Repository to your local machine:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
+git clone https://github.com/anugyamehrotra/eduPortal.git
+cd eduPortal
 ```
 <br>
 
