@@ -1,6 +1,6 @@
 /*!
  * eduPortal - All Rights Reserved
- * Copyright 2025 Anugya Mehrotra
+ * Copyright 2025 Anugya Mehrotra • eduPortal
  *
  * This software is proprietary and may not be copied, modified, or distributed
  * without express written permission. For reference only.
